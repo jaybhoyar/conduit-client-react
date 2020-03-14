@@ -13,7 +13,7 @@
 			width: 25%;
 			p {
 				font-size: 1.5rem;
-				font-weight: 700;
+				font-weight: 800;
 				color: #10af90;
 			}
 		}
@@ -33,12 +33,20 @@
 			align-items: center;
 			justify-content: flex-end;
 			width: 25%;
+
 			a {
+				margin-right: 12px;
 				text-decoration: none;
 				font-size: 1rem;
-				padding: 0 1rem;
+				padding: 12px 1rem;
 				color: #7c7c7c;
 			}
 		}
 	}
+}
+
+.active_link {
+	background-color: #10af90;
+	color: #fff;
+	border-radius: 4px;
 }

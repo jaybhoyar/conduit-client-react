@@ -13,9 +13,15 @@ function Header() {
 					<input type="text" name="" id="" />
 				</div>
 				<div className="auth_button">
-					<a href="#">Home</a>
-					<a href="#">Sign in</a>
-					<a href="#">Signup</a>
+					<a href="#" className="active_link">
+						Home
+					</a>
+					<a href="#" className="active_link">
+						Sign in
+					</a>
+					<a href="#" className="active_link">
+						Signup
+					</a>
 				</div>
 			</header>
 		</div>
