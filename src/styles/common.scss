@@ -1,0 +1,44 @@
+.header_container {
+	width: 100%;
+	margin: 0 auto;
+	.header {
+		padding: 0.8rem 1rem;
+		display: flex;
+		justify-content: space-evenly;
+		width: 80%;
+		margin: 0 auto;
+		.logo {
+			display: flex;
+			align-items: center;
+			width: 25%;
+			p {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: #10af90;
+			}
+		}
+		.search_box {
+			width: 50%;
+			input {
+				width: 80%;
+				padding: 10px 20px;
+				border: none;
+				border: 1px solid #cccc;
+				border-radius: 4px;
+				outline: none;
+			}
+		}
+		.auth_button {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			width: 25%;
+			a {
+				text-decoration: none;
+				font-size: 1rem;
+				padding: 0 1rem;
+				color: #7c7c7c;
+			}
+		}
+	}
+}
