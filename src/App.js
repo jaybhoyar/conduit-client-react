@@ -1,16 +1,17 @@
 import React from "react";
-// import Header from "./components/common/Header";
-// import Hero from "./components/common/Hero";
+import { Route } from "react-router-dom";
+import Home from "./components/Home/Home";
 import Signin from "./components/Signin/signin";
 import Signup from "./components/Signup/Signup";
+import Header from "./components/common/Header";
 
 function App() {
 	return (
 		<>
-			{/* <Header />
-			<Hero /> 
-			<Signin /> */}
-			<Signup />
+			<Header />
+			<Route exact path="/" component={Home} />
+			<Route exact path="/login" component={Signin} />
+			<Route exact path="/signup" component={Signup} />
 		</>
 	);
 }

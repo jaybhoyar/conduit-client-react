@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../common/Header";
 import "../../styles/common.scss";
 
 function Signup() {
 	return (
 		<div>
-			<Header />
 			<div className="form_container">
 				<h3 className="form_heading">Sign Up</h3>
 				<h6 className="form_subheading">Have an account?</h6>
