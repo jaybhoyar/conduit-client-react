@@ -8,7 +8,7 @@ a {
 .header_container {
 	width: 100%;
 	.header {
-		padding: 0.7rem 1rem;
+		padding: 0.7rem 0;
 		display: flex;
 		justify-content: space-evenly;
 		width: 80%;
@@ -24,7 +24,7 @@ a {
 			}
 		}
 		.search_box {
-			width: 40%;
+			width: 50%;
 			input {
 				width: 80%;
 				padding: 12px 20px;
@@ -37,7 +37,7 @@ a {
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
-			// width: 25%;
+			width: 25%;
 
 			a {
 				margin-right: 12px;
