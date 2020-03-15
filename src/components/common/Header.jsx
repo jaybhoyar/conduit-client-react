@@ -16,12 +16,8 @@ function Header() {
 					<a href="#" className="active_link">
 						Home
 					</a>
-					<a href="#" className="active_link">
-						Sign in
-					</a>
-					<a href="#" className="active_link">
-						Signup
-					</a>
+					<a href="#">Sign in</a>
+					<a href="#">Signup</a>
 				</div>
 			</header>
 		</div>
