@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./style.scss";
 
 class Article extends Component {
 	state = {
@@ -17,9 +18,37 @@ class Article extends Component {
 
 	render() {
 		return (
-			<div>
-				{this.state.singleArticle && this.state.singleArticle.title}
-			</div>
+			<>
+				{this.state.singleArticle && (
+					<div className="article_container ">
+						<div className="single_article">
+							<div className="article_author">
+								<div className="thumbnail">
+									<img
+										width="40"
+										height="40"
+										src={
+											this.state.singleArticle.author
+												.image
+										}
+										alt={
+											this.state.singleArticle.author
+												.username
+										}
+									/>
+								</div>
+								<h4>
+									{this.state.singleArticle.author.username}
+								</h4>
+							</div>
+							<h3 className="article_title">
+								{this.state.singleArticle.title}
+							</h3>
+							<p>{this.state.singleArticle.body}</p>
+						</div>
+					</div>
+				)}
+			</>
 		);
 	}
 }

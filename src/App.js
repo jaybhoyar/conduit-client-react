@@ -11,6 +11,7 @@ function App() {
 		<>
 			<Header />
 			<Route exact path="/" component={Home} />
+			<Route exact path="/tag/:tag" component={Home} />
 			<Route exact path="/login" component={Signin} />
 			<Route exact path="/signup" component={Signup} />
 			<Route exact path="/article/:slug" component={Article} />

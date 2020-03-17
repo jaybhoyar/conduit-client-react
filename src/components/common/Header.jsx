@@ -17,7 +17,7 @@ function Header() {
 				</div>
 				<div className="auth_button">
 					<Link to="/" className="active_link">
-						Home
+						NewArticle
 					</Link>
 					<Link to="/login">Sign in</Link>
 					<Link to="/signup">Signup</Link>
