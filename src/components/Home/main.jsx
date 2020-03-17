@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./main.scss";
+import { Link } from "react-router-dom";
+
 class Main extends Component {
 	constructor() {
 		super();
@@ -34,7 +36,12 @@ class Main extends Component {
 						this.state.articles.map(article => {
 							return (
 								<div className="single_article">
-									<h3>{article.title}</h3>
+									<Link
+										to={`/article/${article.slug}`}
+										className="article_title"
+									>
+										{article.title}
+									</Link>
 									<p>{article.body}</p>
 									<div className="article_author">
 										<div className="thumbnail">
