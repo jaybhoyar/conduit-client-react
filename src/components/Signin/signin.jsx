@@ -20,14 +20,15 @@ function Signin(props) {
 			})
 		})
 			.then(res => res.json())
-			.then(({ user }) => {
-				if (user.erros) {
-					localStorage.setItem("isLoggedIn", false);
+			.then(userData => {
+				if (userData.errors) {
+					console.log("Err in SignIn");
 				} else {
+					console.log(userData.user.token);
 					props.history.push("/");
-					localStorage.setItem("isLoggedIn", true);
-					props.updateIsLoggedIn(true);
-					localStorage.setItem("accessToken", user.token);
+          props.updateIsLoggedIn(true);
+          console.log(userData.user.token);
+					localStorage.setItem("accessToken", userData.user.token);
 				}
 			})
 			.catch(err => {

@@ -11,29 +11,32 @@ import Settings from "./components/Settings";
 
 function Auth() {
 	return (
-		<>
+		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/settings" component={Settings} />
 			<Route exact path="/newpost" component={NewArticle} />
 			<Route path="*" render={() => <h1>"404 Page not Found"</h1>} />
-		</>
+		</Switch>
 	);
 }
-function noAuth() {
+function NoAuth(propsMain) {
 	return (
-		<>
+		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route exact path="/tag/:tag" component={Home} />
 			<Route
 				path="/login"
-				render={() => (
-					<Signin updateIsLoggedIn={this.updateIsLoggedIn} />
+				render={props => (
+					<Signin
+						updateIsLoggedIn={propsMain.updateIsLoggedIn}
+						{...props}
+					/>
 				)}
 			/>
 			<Route exact path="/signup" component={Signup} />
 			<Route exact path="/article/:slug" component={Article} />
 			<Route path="*" render={() => <h1>"404 Page not Found"</h1>} />
-		</>
+		</Switch>
 	);
 }
 
@@ -69,20 +72,11 @@ class App extends React.Component {
 		return (
 			<>
 				<Header isLoggedIn={this.state.isLoggedIn} />
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/tag/:tag" component={Home} />
-
-					<Route
-						path="/login"
-						render={() => (
-							<Signin updateIsLoggedIn={this.updateIsLoggedIn} />
-						)}
-					/>
-					<Route exact path="/signup" component={Signup} />
-
-					<Route exact path="/article/:slug" component={Article} />
-				</Switch>
+				{this.state.isLoggedIn ? (
+					<Auth />
+				) : (
+					<NoAuth updateIsLoggedIn={this.updateIsLoggedIn} />
+				)}
 			</>
 		);
 	}
