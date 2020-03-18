@@ -28,27 +28,29 @@ function Signup() {
 			<div className="form_container">
 				<h3 className="form_heading">Sign Up</h3>
 				<h6 className="form_subheading">Have an account?</h6>
-				<input
-					className="text_input"
-					type="text"
-					ref={username}
-					placeholder="Username"
-				/>
-				<input
-					className="text_input"
-					type="email"
-					ref={email}
-					placeholder="Email"
-				/>
-				<input
-					className="text_input"
-					type="password"
-					ref={password}
-					placeholder="Password"
-				/>
-				<button className="submit_button" onClick={handleSignUp}>
-					Signup
-				</button>
+				<div>
+					<input
+						className="text_input"
+						type="text"
+						ref={username}
+						placeholder="Username"
+					/>
+					<input
+						className="text_input"
+						type="email"
+						ref={email}
+						placeholder="Email"
+					/>
+					<input
+						className="text_input"
+						type="password"
+						ref={password}
+						placeholder="Password"
+					/>
+					<button className="submit_button" onClick={handleSignUp}>
+						Signup
+					</button>
+				</div>
 			</div>
 		</div>
 	);

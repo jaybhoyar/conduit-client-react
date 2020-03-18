@@ -3,7 +3,7 @@ import React from "react";
 import "../../styles/common.scss";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
 	return (
 		<div className="header_container">
 			<header className="header">
@@ -16,7 +16,7 @@ function Header() {
 					<input type="text" name="" id="" />
 				</div>
 				<div className="auth_button">
-					{Boolean(localStorage.isLoggedIn) ? (
+					{props.isLoggedIn ? (
 						<>
 							<Link to="/newpost">NewArticle</Link>
 							<Link to="/settings">Settings</Link>
@@ -24,7 +24,7 @@ function Header() {
 					) : (
 						<>
 							<Link to="/login">Sign in</Link>
-							<Link to="/signup">Signup</Link> 
+							<Link to="/signup">Signup</Link>
 						</>
 					)}
 				</div>

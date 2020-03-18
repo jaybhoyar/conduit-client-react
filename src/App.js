@@ -9,22 +9,41 @@ import Article from "./components/Article/index";
 import NewArticle from "./components/Newarticle";
 import Settings from "./components/Settings";
 
-function App() {
-	return (
-		<>
-			<Header />
-			<Switch>
-				<Route exact path="/" component={Home} />
-				<Route exact path="/tag/:tag" component={Home} />
-				<Route exact path="/newpost" component={NewArticle} />
-				<Route exact path="/login" component={Signin} />
-				<Route exact path="/signup" component={Signup} />
-				<Route exact path="/settings" component={Settings} />
-				<Route exact path="/article/:slug" component={Article} />
-				<Route path="*" render={() => <h1>"404 Page not Found"</h1>} />
-			</Switch>
-		</>
-	);
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isLoggedIn: false
+		};
+	}
+	updateIsLoggedIn = value => {
+		this.setState({ isLoggedIn: value });
+	};
+	render() {
+		return (
+			<>
+				<Header isLoggedIn={this.state.isLoggedIn} />
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/tag/:tag" component={Home} />
+					<Route exact path="/newpost" component={NewArticle} />
+					<Route
+						path="/login"
+						render={() => (
+							<Signin updateIsLoggedIn={this.updateIsLoggedIn} />
+						)}
+					/>
+					<Route exact path="/signup" component={Signup} />
+					<Route exact path="/settings" component={Settings} />
+					<Route exact path="/article/:slug" component={Article} />
+					<Route
+						path="*"
+						render={() => <h1>"404 Page not Found"</h1>}
+					/>
+				</Switch>
+			</>
+		);
+	}
 }
 
 export default App;

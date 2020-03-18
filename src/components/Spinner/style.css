@@ -13,18 +13,18 @@
 	);
 	background: -webkit-linear-gradient(
 		left,
-		#10af90 10%,
+		#10af8fc4 10%,
 		rgba(0, 255, 175, 0) 42%
 	);
 	background: -o-linear-gradient(left, #00ffaf 10%, rgba(0, 255, 175, 0) 42%);
 	background: -ms-linear-gradient(
 		left,
-		#10af90 10%,
+		#10af8fd7 10%,
 		rgba(0, 255, 175, 0) 42%
 	);
 	background: linear-gradient(
 		to right,
-		#10af90 10%,
+		#10af8fe8 10%,
 		rgba(0, 255, 175, 0) 42%
 	);
 	position: relative;
