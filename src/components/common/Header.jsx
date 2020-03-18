@@ -16,11 +16,10 @@ function Header() {
 					<input type="text" name="" id="" />
 				</div>
 				<div className="auth_button">
-					<Link to="/" className="active_link">
-						NewArticle
-					</Link>
+					<Link to="/newpost">NewArticle</Link>
 					<Link to="/login">Sign in</Link>
 					<Link to="/signup">Signup</Link>
+					<Link to="/settings">Settings</Link>
 				</div>
 			</header>
 		</div>
