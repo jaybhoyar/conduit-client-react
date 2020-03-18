@@ -18,12 +18,9 @@ class Main extends Component {
 
 		let articles = fetch(articlesUrl).then(res => res.json());
 		let tags = fetch(tagsUrl).then(res => res.json());
-
-		Promise.all([articles, tags])
-			// .then(res => res.json())
-			.then(res => {
-				this.setState({ articles: res[0].articles, tags: res[1].tags });
-			});
+		Promise.all([articles, tags]).then(res => {
+			this.setState({ articles: res[0].articles, tags: res[1].tags });
+		});
 	}
 	updateArticle(tagName) {
 		fetch(

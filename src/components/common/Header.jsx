@@ -16,10 +16,17 @@ function Header() {
 					<input type="text" name="" id="" />
 				</div>
 				<div className="auth_button">
-					<Link to="/newpost">NewArticle</Link>
-					<Link to="/login">Sign in</Link>
-					<Link to="/signup">Signup</Link>
-					<Link to="/settings">Settings</Link>
+					{Boolean(localStorage.isLoggedIn) ? (
+						<>
+							<Link to="/newpost">NewArticle</Link>
+							<Link to="/settings">Settings</Link>
+						</>
+					) : (
+						<>
+							<Link to="/login">Sign in</Link>
+							<Link to="/signup">Signup</Link> 
+						</>
+					)}
 				</div>
 			</header>
 		</div>

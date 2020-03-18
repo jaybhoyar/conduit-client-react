@@ -17,11 +17,11 @@ function NewArticle() {
 						type="text"
 						placeholder="What's this article about?"
 					/>
-					<input
+					<textarea
 						className="text_input"
 						type="text"
 						placeholder="Start here ..."
-					/>
+					></textarea>
 					<input
 						className="text_input"
 						type="text"
