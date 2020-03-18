@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../../styles/common.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header(props) {
 	return (
 		<div className="header_container">
 			<header className="header">
 				<div className="logo">
-					<Link to="/" className="main_heading">
+					<NavLink to="/" className="main_heading">
 						Conduit
-					</Link>
+					</NavLink>
 				</div>
 				<div className="search_box">
 					<input type="text" name="" id="" />
@@ -18,13 +18,27 @@ function Header(props) {
 				<div className="auth_button">
 					{props.isLoggedIn ? (
 						<>
-							<Link to="/newpost">NewArticle</Link>
-							<Link to="/settings">Settings</Link>
+							<NavLink
+								activeclassName="active_link"
+								to="/newpost"
+							>
+								NewArticle
+							</NavLink>
+							<NavLink
+								activeclassName="active_link"
+								to="/settings"
+							>
+								Settings
+							</NavLink>
 						</>
 					) : (
 						<>
-							<Link to="/login">Sign in</Link>
-							<Link to="/signup">Signup</Link>
+							<NavLink activeClassName="active_link" to="/login">
+								Sign in
+							</NavLink>
+							<NavLink activeClassName="active_link" to="/signup">
+								Signup
+							</NavLink>
 						</>
 					)}
 				</div>
