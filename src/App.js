@@ -8,13 +8,26 @@ import Header from "./components/common/Header";
 import Article from "./components/Article/index";
 import NewArticle from "./components/Newarticle";
 import Settings from "./components/Settings";
+import Logout from "./components/Logout";
 
-function Auth() {
+function Auth(props) {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
+			<Route
+				exact
+				path="/logout"
+				render={properties => (
+					<Logout
+						updateIsLoggedIn={props.updateIsLoggedIn}
+						{...properties}
+					/>
+				)}
+			/>
+			<Route exact path="/tag/:tag" component={Home} />
 			<Route exact path="/settings" component={Settings} />
 			<Route exact path="/newpost" component={NewArticle} />
+			<Route exact path="/article/:slug" component={Article} />
 			<Route path="*" render={() => <h1>"404 Page not Found"</h1>} />
 		</Switch>
 	);
@@ -73,7 +86,7 @@ class App extends React.Component {
 			<>
 				<Header isLoggedIn={this.state.isLoggedIn} />
 				{this.state.isLoggedIn ? (
-					<Auth />
+					<Auth updateIsLoggedIn={this.updateIsLoggedIn} />
 				) : (
 					<NoAuth updateIsLoggedIn={this.updateIsLoggedIn} />
 				)}

@@ -6,7 +6,7 @@ function Settings() {
 		<div>
 			<div className="form_container">
 				<h3 className="form_heading">Your Settings</h3>
-				<form>
+				<div>
 					<input
 						className="text_input"
 						type="text"
@@ -37,7 +37,7 @@ function Settings() {
 						type="submit"
 						value="Submit"
 					/>
-				</form>
+				</div>
 			</div>
 		</div>
 	);

@@ -30,6 +30,9 @@ function Header(props) {
 							>
 								Settings
 							</NavLink>
+							<NavLink activeclassName="active_link" to="/logout">
+								Logout
+							</NavLink>
 						</>
 					) : (
 						<>

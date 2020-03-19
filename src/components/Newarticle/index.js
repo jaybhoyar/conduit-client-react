@@ -6,7 +6,7 @@ function NewArticle() {
 		<div>
 			<div className="form_container">
 				<h3 className="form_heading">New Article</h3>
-				<form>
+				<div>
 					<input
 						className="text_input"
 						type="text"
@@ -32,7 +32,7 @@ function NewArticle() {
 						type="submit"
 						value="Publish!"
 					/>
-				</form>
+				</div>
 			</div>
 		</div>
 	);

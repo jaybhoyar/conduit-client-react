@@ -24,10 +24,8 @@ function Signin(props) {
 				if (userData.errors) {
 					console.log("Err in SignIn");
 				} else {
-					console.log(userData.user.token);
 					props.history.push("/");
-          props.updateIsLoggedIn(true);
-          console.log(userData.user.token);
+					props.updateIsLoggedIn(true);
 					localStorage.setItem("accessToken", userData.user.token);
 				}
 			})
