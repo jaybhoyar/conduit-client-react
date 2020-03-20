@@ -4,21 +4,26 @@ import "./style.scss";
 import Loader from "../Spinner/index";
 
 class Article extends Component {
-	state = {
-		singleArticle: null
-	};
+	constructor(props) {
+		super(props);
 
-	componentDidMount() {
+		this.state = {
+			singleArticle: ""
+		};
 		fetch(
 			`https://conduit.productionready.io/api/articles/${this.props.match.params.slug}`
 		)
 			.then(res => res.json())
-			.then(({ article }) => {
-				this.setState({ singleArticle: article });
+			.then(articleObj => {
+				this.setState({ singleArticle: articleObj.article });
 			});
 	}
-
 	render() {
+		const { title, author, description } = this.state.singleArticle;
+		const newVar = description;
+		var newSlice = newVar.slice(1, 50);
+		console.log(newVar);
+		console.log(newSlice);
 		return (
 			<>
 				{this.state.singleArticle ? (
@@ -30,29 +35,26 @@ class Article extends Component {
 										<img
 											width="40"
 											height="40"
-											src={
-												this.state.singleArticle.author
-													.image
-											}
-											alt={
-												this.state.singleArticle.author
-													.username
-											}
+											src={author.image}
+											alt={author.username}
 										/>
 									</div>
-									<h4>
-										{
-											this.state.singleArticle.author
-												.username
-										}
-									</h4>
+									<h4>{author.username}</h4>
 								</div>
-								<h3 className="article_title">
-									{this.state.singleArticle.title}
-								</h3>
-								<p>{this.state.singleArticle.body}</p>
+								<h3 className="article_title">{title}</h3>
+								<p>{description}</p>
 							</div>
 						)}
+						<div className="comment_container">
+							<div className="comment_input">
+								<input
+									className="text_input"
+									type="text"
+									placeholder="Write a Comment.."
+								/>
+							</div>
+							<div className="comment"></div>
+						</div>
 					</div>
 				) : (
 					<Loader />
