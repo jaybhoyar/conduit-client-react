@@ -19,18 +19,18 @@ function Header(props) {
 					{props.isLoggedIn ? (
 						<>
 							<NavLink
-								activeclassName="active_link"
+								activeClassName="active_link"
 								to="/newpost"
 							>
 								NewArticle
 							</NavLink>
 							<NavLink
-								activeclassName="active_link"
+								activeClassName="active_link"
 								to="/settings"
 							>
 								Settings
 							</NavLink>
-							<NavLink activeclassName="active_link" to="/logout">
+							<NavLink activeClassName="active_link" to="/logout">
 								Logout
 							</NavLink>
 						</>

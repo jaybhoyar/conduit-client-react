@@ -65,7 +65,7 @@ class App extends React.Component {
 	};
 	componentDidMount() {
 		if (localStorage["accessToken"]) {
-			fetch(`https://conduit.productionready.io/api/users/login`, {
+			fetch(`https://conduit.productionready.io/api/user`, {
 				method: "GET",
 				headers: {
 					authorization: `Token ${localStorage["accessToken"]}`

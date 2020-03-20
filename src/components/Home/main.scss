@@ -23,7 +23,9 @@
 	.articles_container {
 		padding: 0 2rem;
 		width: 50%;
+
 		.single_article {
+			background: #fff;
 			border-radius: 2px;
 			box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.25),
 				1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -66,8 +68,10 @@
 	}
 
 	.tags_container {
-		width: 30%;
+    width: 30%;
+    
 		.tags_box {
+      background: #fff;
 			display: flex;
 			flex-wrap: wrap;
 			border-radius: 2px;
