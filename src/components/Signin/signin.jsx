@@ -10,17 +10,17 @@ function Signin(props) {
 		fetch("https://conduit.productionready.io/api/users/login", {
 			method: "POST",
 			headers: {
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
 				user: {
 					email: email.current.value,
-					password: password.current.value
-				}
-			})
+					password: password.current.value,
+				},
+			}),
 		})
-			.then(res => res.json())
-			.then(userData => {
+			.then((res) => res.json())
+			.then((userData) => {
 				if (userData.errors) {
 					console.log("Err in SignIn");
 				} else {
@@ -29,7 +29,7 @@ function Signin(props) {
 					localStorage.setItem("accessToken", userData.user.token);
 				}
 			})
-			.catch(err => {
+			.catch((err) => {
 				console.log(err);
 			});
 	}

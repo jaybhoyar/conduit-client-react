@@ -17,7 +17,7 @@ function Auth(props) {
 			<Route
 				exact
 				path="/logout"
-				render={properties => (
+				render={(properties) => (
 					<Logout
 						updateIsLoggedIn={props.updateIsLoggedIn}
 						{...properties}
@@ -39,7 +39,7 @@ function NoAuth(propsMain) {
 			<Route exact path="/tag/:tag" component={Home} />
 			<Route
 				path="/login"
-				render={props => (
+				render={(props) => (
 					<Signin
 						updateIsLoggedIn={propsMain.updateIsLoggedIn}
 						{...props}
@@ -57,10 +57,10 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isLoggedIn: false
+			isLoggedIn: false,
 		};
 	}
-	updateIsLoggedIn = value => {
+	updateIsLoggedIn = (value) => {
 		this.setState({ isLoggedIn: value });
 	};
 	componentDidMount() {
@@ -68,14 +68,14 @@ class App extends React.Component {
 			fetch(`https://conduit.productionready.io/api/user`, {
 				method: "GET",
 				headers: {
-					authorization: `Token ${localStorage["accessToken"]}`
-				}
+					authorization: `Token ${localStorage["accessToken"]}`,
+				},
 			})
-				.then(res => res.json())
-				.then(user => {
+				.then((res) => res.json())
+				.then((user) => {
 					this.setState({ isLoggedIn: true });
 				})
-				.catch(err => {
+				.catch((err) => {
 					console.log(err);
 					this.setState({ isLoggedIn: false });
 				});

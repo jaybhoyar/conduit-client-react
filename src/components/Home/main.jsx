@@ -7,7 +7,7 @@ class Main extends Component {
 		super();
 		this.state = {
 			tags: null,
-			articles: null
+			articles: null,
 		};
 	}
 
@@ -16,9 +16,9 @@ class Main extends Component {
 		let articlesUrl =
 			"https://conduit.productionready.io/api/articles?limit=20&offset=0";
 
-		let articles = fetch(articlesUrl).then(res => res.json());
-		let tags = fetch(tagsUrl).then(res => res.json());
-		Promise.all([articles, tags]).then(res => {
+		let articles = fetch(articlesUrl).then((res) => res.json());
+		let tags = fetch(tagsUrl).then((res) => res.json());
+		Promise.all([articles, tags]).then((res) => {
 			this.setState({ articles: res[0].articles, tags: res[1].tags });
 		});
 	}
@@ -26,8 +26,8 @@ class Main extends Component {
 		fetch(
 			`https://conduit.productionready.io/api/articles?tag=${tagName}&limit=10&offset=0`
 		)
-			.then(res => res.json())
-			.then(res => this.setState({ articles: res.articles }));
+			.then((res) => res.json())
+			.then((res) => this.setState({ articles: res.articles }));
 	}
 	render() {
 		return (
@@ -39,7 +39,7 @@ class Main extends Component {
 				{this.state.articles ? (
 					<div className="articles_container">
 						{this.state.articles &&
-							this.state.articles.map(article => {
+							this.state.articles.map((article) => {
 								return (
 									<div className="single_article">
 										<Link
@@ -73,7 +73,7 @@ class Main extends Component {
 					{this.state.tags ? (
 						<div className="tags_box">
 							{this.state.tags &&
-								this.state.tags.map(tag => {
+								this.state.tags.map((tag) => {
 									return (
 										<Link
 											to={`/tag/${tag}`}

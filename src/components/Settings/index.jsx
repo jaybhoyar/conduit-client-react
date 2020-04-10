@@ -8,7 +8,7 @@ class Settings extends React.Component {
 		super();
 		this.state = {
 			user: null,
-			isLoggedIn: true
+			isLoggedIn: true,
 		};
 		this.username = createRef(null);
 		this.email = createRef(null);
@@ -19,14 +19,14 @@ class Settings extends React.Component {
 			fetch(`https://conduit.productionready.io/api/user`, {
 				method: "GET",
 				headers: {
-					authorization: `Token ${localStorage["accessToken"]}`
-				}
+					authorization: `Token ${localStorage["accessToken"]}`,
+				},
 			})
-				.then(res => res.json())
-				.then(userData => {
+				.then((res) => res.json())
+				.then((userData) => {
 					console.log(userData.user);
 					this.setState({
-						user: userData.user
+						user: userData.user,
 					});
 
 					this.username.current.value = userData.user.username;
@@ -34,7 +34,7 @@ class Settings extends React.Component {
 					this.password.current.value = userData.user.password;
 					this.bio.current.value = userData.user.bio;
 				})
-				.catch(err => {
+				.catch((err) => {
 					console.log(err);
 				});
 		}
@@ -46,13 +46,13 @@ class Settings extends React.Component {
 				.put(`https://conduit.productionready.io/api/user`, {
 					method: "PUT",
 					headers: {
-						authorization: `Token ${localStorage["accessToken"]}`
-					}
+						authorization: `Token ${localStorage["accessToken"]}`,
+					},
 				})
-				.then(userData => {
+				.then((userData) => {
 					this.setState({ user: userData.data.user });
 				})
-				.catch(err => {
+				.catch((err) => {
 					console.log(err);
 				});
 		}
