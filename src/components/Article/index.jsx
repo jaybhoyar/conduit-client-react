@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+// import { connect } from "react-redux";
 import "./style.scss";
 import Loader from "../Spinner/index";
 
@@ -8,22 +8,19 @@ class Article extends Component {
 		super(props);
 
 		this.state = {
-			singleArticle: ""
+			singleArticle: "",
 		};
 		fetch(
 			`https://conduit.productionready.io/api/articles/${this.props.match.params.slug}`
 		)
-			.then(res => res.json())
-			.then(articleObj => {
+			.then((res) => res.json())
+			.then((articleObj) => {
 				this.setState({ singleArticle: articleObj.article });
 			});
 	}
 	render() {
 		const { title, author, description } = this.state.singleArticle;
-		const newVar = description;
-		var newSlice = newVar.slice(1, 50);
-		console.log(newVar);
-		console.log(newSlice);
+
 		return (
 			<>
 				{this.state.singleArticle ? (

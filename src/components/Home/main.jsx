@@ -1,16 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "./main.scss";
 import { Link } from "react-router-dom";
 import Loader from "../Spinner/index";
-class Main extends Component {
-	constructor() {
-		super();
-		this.state = {
-			tags: null,
-			articles: null,
-		};
-	}
 
+class Main extends Component {
 	componentDidMount() {
 		let tagsUrl = "https://conduit.productionready.io/api/tags";
 		let articlesUrl =
@@ -19,7 +13,15 @@ class Main extends Component {
 		let articles = fetch(articlesUrl).then((res) => res.json());
 		let tags = fetch(tagsUrl).then((res) => res.json());
 		Promise.all([articles, tags]).then((res) => {
-			this.setState({ articles: res[0].articles, tags: res[1].tags });
+			// this.setState({ articles: res[0].articles, tags: res[1].tags });
+			this.props.dispatch({
+				type: "GET_ARTICLES",
+				payload: res[0].articles,
+			});
+			this.props.dispatch({
+			// 	type: "GET_TAGS",
+			// 	payload: res[1].tags,
+			// });
 		});
 	}
 	updateArticle(tagName) {
@@ -30,16 +32,18 @@ class Main extends Component {
 			.then((res) => this.setState({ articles: res.articles }));
 	}
 	render() {
+		console.log("props", this.props.articles);
 		return (
 			<div className="main_container">
 				<div className="feed_bar">
 					<p>Global</p>
 					<p>tag</p>
 				</div>
-				{this.state.articles ? (
+
+				{this.props.articles ? (
 					<div className="articles_container">
-						{this.state.articles &&
-							this.state.articles.map((article) => {
+						{this.props.articles &&
+							this.props.articles.map((article) => {
 								return (
 									<div className="single_article">
 										<Link
@@ -70,10 +74,10 @@ class Main extends Component {
 					<Loader />
 				)}
 				<div className="tags_container">
-					{this.state.tags ? (
+					{this.props.tags ? (
 						<div className="tags_box">
-							{this.state.tags &&
-								this.state.tags.map((tag) => {
+							{this.props.tags &&
+								this.props.tags.map((tag) => {
 									return (
 										<Link
 											to={`/tag/${tag}`}
@@ -95,5 +99,10 @@ class Main extends Component {
 		);
 	}
 }
-
-export default Main;
+function mapStateToProps({ articles, tags }) {
+	return {
+		articles,
+		tags,
+	};
+}
+export default connect(mapStateToProps)(Main);
