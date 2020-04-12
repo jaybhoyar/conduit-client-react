@@ -3,20 +3,12 @@ import { connect } from "react-redux";
 import "./main.scss";
 import { Link } from "react-router-dom";
 import Loader from "../Spinner/index";
-import { getArticles, getTags } from "../../store/action/";
+import { fetchArticles } from "../../store/action/";
 
 class Main extends Component {
 	componentDidMount() {
-		let tagsUrl = "https://conduit.productionready.io/api/tags";
-		let articlesUrl =
-			"https://conduit.productionready.io/api/articles?limit=20&offset=0";
-
-		let articles = fetch(articlesUrl).then((res) => res.json());
-		let tags = fetch(tagsUrl).then((res) => res.json());
-		Promise.all([articles, tags]).then((res) => {
-			this.props.dispatch(getArticles(res[0].articles));
-			this.props.dispatch(getTags(res[1].tags));
-		});
+		this.props.dispatch(fetchArticles());
+		// this.props.dispatch(getTags(res[1].tags));
 	}
 	updateArticle(tagName) {
 		fetch(

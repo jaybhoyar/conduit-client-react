@@ -16,3 +16,17 @@ export function getSingleArticle(payload) {
 		payload: payload,
 	};
 }
+
+export function fetchArticles() {
+	return function (disptach) {
+		// let tagsUrl = "https://conduit.productionready.io/api/tags";
+		fetch(
+			"https://conduit.productionready.io/api/articles?limit=20&offset=0"
+		)
+			.then((res) => res.json())
+			// let tags = fetch(tagsUrl).then((res) => res.json());
+			.then(({ articles }) => {
+				dispatch(getArticles(articles));
+			});
+	};
+}
