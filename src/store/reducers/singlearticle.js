@@ -1,6 +1,6 @@
-export function tagsReducer(state = null, action) {
+export function singleArticleReducer(state = null, action) {
 	switch (action.type) {
-		case "GET_TAGS": {
+		case "GET_ARTICLE": {
 			return action.payload;
 		}
 		default: {

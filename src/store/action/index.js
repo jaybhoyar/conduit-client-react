@@ -10,3 +10,9 @@ export function getTags(payload) {
 		payload: payload,
 	};
 }
+export function getSingleArticle(payload) {
+	return {
+		type: "GET_ARTICLE",
+		payload: payload,
+	};
+}

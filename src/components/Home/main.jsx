@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./main.scss";
 import { Link } from "react-router-dom";
 import Loader from "../Spinner/index";
+import { getArticles, getTags } from "../../store/action/";
 
 class Main extends Component {
 	componentDidMount() {
@@ -13,15 +14,8 @@ class Main extends Component {
 		let articles = fetch(articlesUrl).then((res) => res.json());
 		let tags = fetch(tagsUrl).then((res) => res.json());
 		Promise.all([articles, tags]).then((res) => {
-			// this.setState({ articles: res[0].articles, tags: res[1].tags });
-			this.props.dispatch({
-				type: "GET_ARTICLES",
-				payload: res[0].articles,
-			});
-			this.props.dispatch({
-			// 	type: "GET_TAGS",
-			// 	payload: res[1].tags,
-			// });
+			this.props.dispatch(getArticles(res[0].articles));
+			this.props.dispatch(getTags(res[1].tags));
 		});
 	}
 	updateArticle(tagName) {
@@ -29,10 +23,14 @@ class Main extends Component {
 			`https://conduit.productionready.io/api/articles?tag=${tagName}&limit=10&offset=0`
 		)
 			.then((res) => res.json())
-			.then((res) => this.setState({ articles: res.articles }));
+			.then((res) =>
+				this.props.dispatch({
+					type: "GET_ARTICLES",
+					payload: res.articles,
+				})
+			);
 	}
 	render() {
-		console.log("props", this.props.articles);
 		return (
 			<div className="main_container">
 				<div className="feed_bar">
